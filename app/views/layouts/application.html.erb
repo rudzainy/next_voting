@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-top">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -45,7 +45,7 @@
 
     <div id="flash">
       <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %> alert-dismissable fade in">
+        <div class="alert alert-<%= key == 'notice' ? 'info' : key %> alert-dismissable fade in">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
           <%= value %>
         </div>
@@ -55,5 +55,10 @@
     <div class="container">
       <%= yield %>
     </div>
+    <nav class="navbar navbar-bottom">
+      <div class="container-fluid pull-right">
+        Made with ❤ by NEXT Academy mentors
+      </div>
+    </nav>
   </body>
 </html>
