@@ -2,6 +2,7 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.all
+    @awards = Award.all
   end
 
   def show

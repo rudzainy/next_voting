@@ -24,6 +24,11 @@ class Admins::TeamsController < ApplicationController
   end
 
   def update
+    if @team.update(team_params)
+      redirect_to admins_team_path(@team)
+    else
+      render :edit
+    end
   end
 
   def destroy

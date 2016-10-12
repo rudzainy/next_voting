@@ -1,0 +1,25 @@
+<%= form_for [award, vote] do |f| %>
+  <% if vote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
+
+      <ul>
+      <% vote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+
+
+    <% @teams.each do |team| %>
+      <div class="field">
+        <%= check_box_tag "vote[team_id][]", team.id %> <%= team.name %>
+      </div>
+    <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :notes
+  has_many :votes
 
   include Clearance::User
 
@@ -13,5 +14,9 @@ class User < ApplicationRecord
 
   def find_team_note_id(team_id)
     Note.find_by(user_id: self.id, team_id: team_id).id
+  end
+
+  def admin?
+    self.role == "admin"
   end
 end
