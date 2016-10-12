@@ -1,0 +1,13 @@
+<h1>Admins::Awards#index</h1>
+<p>Find me in app/views/admins/awards/index.html.erb</p>
+
+<p><li><%= link_to "Add Award", new_admins_award_path %></li></p>
+
+<% @awards.each do |award| %>
+  <p>
+    <b><%= award.title %></b>
+    <%= link_to "Show", admins_award_path(award) %>
+    <%= link_to "Edit", edit_admins_award_path(award) %>
+    <%= link_to "Delete", admins_award_path(award), method: :delete %>
+  </p>
+<%end%>
