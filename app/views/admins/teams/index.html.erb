@@ -1,0 +1,13 @@
+<h1>Admins::Teams#index</h1>
+<p>Find me in app/views/admins/teams/index.html.erb</p>
+
+<p><li><%= link_to "Add Team", new_admins_team_path %></li></p>
+
+<% @teams.each do |team| %>
+  <p>
+    <b><%= team.name %></b>
+    <%= link_to "Show", admins_team_path(team) %>
+    <%= link_to "Edit", edit_admins_team_path(team) %>
+    <%= link_to "Delete", admins_team_path(team), method: :delete %>
+  </p>
+<%end%>
