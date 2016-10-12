@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :notes
   namespace :admins do
     resources :statics, only: [:index]
-    resources :questions
-  end
+    end
 
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   root "home#welcome"
   resources :teams
-  resources :answers
   # resources :questions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
