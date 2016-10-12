@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+
+
   resources :notes
   namespace :admins do
     resources :statics, only: [:index]
-    end
+    resources :teams
+  end
 
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
