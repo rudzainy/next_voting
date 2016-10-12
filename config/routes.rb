@@ -20,6 +20,5 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   root "home#welcome"
   resources :teams
-  # resources :questions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
