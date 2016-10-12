@@ -24,8 +24,8 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    if params[:vote][:team_id].count > 1
-      flash[:danger] = "Bad boy"
+    if params[:vote][:team_id].count > 3
+      flash[:danger] = "You can only vote up to three (3) teams."
       redirect_to award_path(params[:award_id])
     else
       current_user.votes.destroy_all
@@ -34,7 +34,7 @@ class VotesController < ApplicationController
         vote.team_id = team_id
         vote.save
       end
-      flash[:success] = 'Vote was successfully created.'
+      flash[:success] = 'Your vote(s) was successfully recorded.'
       redirect_to root_path
     end
 

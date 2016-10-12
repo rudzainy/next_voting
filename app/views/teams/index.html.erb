@@ -9,10 +9,8 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-sm-12 team-image">
-              <img src="<%= team.image.url %>" />
-            </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 team-image" style="background-image: url(<%= team.image.url %>);"></div>
+            <div class="col-sm-12 team-description" >
               <%= team.description %>
             </div>
           </div>
