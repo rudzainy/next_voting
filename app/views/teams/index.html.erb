@@ -19,6 +19,11 @@
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.added_note?(team.id) %>
+          <td><%= link_to 'Edit notes', edit_team_note_path(team, current_user.find_team_note_id(team.id)) %></td>
+        <% else %>
+          <td><%= link_to 'Add notes', new_team_note_path(team) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
