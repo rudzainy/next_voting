@@ -2,6 +2,34 @@ Rails.application.routes.draw do
 
 
 
+  namespace :admin do
+    get 'awards/new'
+  end
+
+  namespace :admin do
+    get 'awards/create'
+  end
+
+  namespace :admin do
+    get 'awards/show'
+  end
+
+  namespace :admin do
+    get 'awards/index'
+  end
+
+  namespace :admin do
+    get 'awards/edit'
+  end
+
+  namespace :admin do
+    get 'awards/update'
+  end
+
+  namespace :admin do
+    get 'awards/destroy'
+  end
+
   resources :notes
   namespace :admins do
     resources :statics, only: [:index]
