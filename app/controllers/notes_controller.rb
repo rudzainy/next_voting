@@ -16,10 +16,12 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    render :new, layout: false
   end
 
   # GET /notes/1/edit
   def edit
+    render :edit, layout: false
   end
 
   # POST /notes
