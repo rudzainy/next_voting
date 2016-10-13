@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "mdb.min";
+@import "style";
 
 * {
   margin: 0;
@@ -72,4 +74,19 @@ html, body {
 
 .vote-button {
   margin-bottom: 20px
+}
+
+.card-heading {
+  padding-top: 12px;
+  padding-bottom: 15px;
+}
+
+.feedback {
+  padding-bottom: 30px;
+}
+
+.feedback-body {
+  width: 350px;
+  display: block;
+  height: 4rem;
 }
