@@ -2,5 +2,5 @@
 <p>Find me in app/views/admins/teams/edit.html.erb</p>
 
 <%= form_for(@team, url: admins_team_path(@team)) do |f| %>
-  <%= render "form", f: f %>
+  <%= render "form", f: f , team: @team %>
 <% end %>

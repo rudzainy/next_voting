@@ -23,7 +23,7 @@
               <%= link_to "Add feedback for #{team.name}", new_team_note_path(team), class: "btn btn-warning", data: { toggle: "modal", target: "#newNote" }  %>
             <% end %>
             <% if current_user.admin? %>
-              <%= link_to 'Edit', edit_team_path(team), class: "btn btn-info"  %>
+              <%= link_to 'Edit', edit_admins_team_path(team), class: "btn btn-info"  %>
               <%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %>
             <% end %>
           </div>
