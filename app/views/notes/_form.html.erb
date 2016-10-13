@@ -14,11 +14,11 @@
   <%= f.hidden_field :user_id, value: current_user.id %>
 
   <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body %>
+    <%= f.label "Leave a feedback for #{team.name}" %>
+    <%= f.text_area :body, class: "feedback-body" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
