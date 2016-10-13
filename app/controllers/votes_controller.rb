@@ -29,8 +29,9 @@ class VotesController < ApplicationController
       redirect_to award_path(params[:award_id])
     else
       current_user.votes.destroy_all
+      award = Award.find(params[:award_id])
       params[:vote][:team_id].each do |team_id|
-        vote = Vote.new(vote_params)
+        vote = award.votes.new(vote_params)
         vote.team_id = team_id
         vote.save
       end

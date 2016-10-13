@@ -19,4 +19,12 @@ class User < ApplicationRecord
   def admin?
     self.role == "admin"
   end
+
+  def find_votes(award_id)
+    votes = []
+    Vote.where(user_id: self.id, award_id: award_id).each do |vote|
+      votes << vote.team_id
+    end
+    votes
+  end
 end
