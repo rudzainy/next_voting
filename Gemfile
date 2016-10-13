@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem "clearance"
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem "mini_magick"
+gem 'fog', require: 'fog/aws'
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'bootstrap-sass', '~> 3.3.6'
