@@ -1,5 +1,8 @@
 <h1 class="text-center"><%=  @award.title %></h1>
+<h4 class="text-center">You can vote up to three (3) teams</h4>
 
 <%= render 'votes/form', award: @award, vote: @vote %>
 
-<%= link_to 'Back', teams_path %>
+<%= link_to root_path, class: "btn btn-default" do %>
+  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
+<% end %>

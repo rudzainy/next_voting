@@ -17,7 +17,11 @@
         <div class="row">
           <% @teams.each do |team| %>
             <div class="col-sm-4">
-              <%= check_box_tag "vote[team_id][]", team.id %> <%= team.name %>
+              <% if @votes.include?(team.id) %>
+                <%= check_box_tag "vote[team_id][]", team.id, checked: true %> <%= team.name %>
+              <% else %>
+                <%= check_box_tag "vote[team_id][]", team.id%> <%= team.name %>
+              <% end %>
             </div>
           <% end %>
         </div>
@@ -25,6 +29,6 @@
     </div>
 
   <div class="actions text-center">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
