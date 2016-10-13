@@ -10,53 +10,55 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default navbar-top">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">NEXT <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>ote</a>
-        </div>
+    <div class="wrapper">
+      <nav class="navbar navbar-default navbar-top">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">NEXT <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>ote</a>
+          </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-          <ul class="nav navbar-nav navbar-right">
-            <!-- <li><a href="#">Link</a></li> -->
-            <% if signed_in? %>
-              <% if current_user.admin? %>
-                <li><%= link_to 'Admin', admins_teams_path %></li>
+            <ul class="nav navbar-nav navbar-right">
+              <!-- <li><a href="#">Link</a></li> -->
+              <% if signed_in? %>
+                <% if current_user.admin? %>
+                  <li><%= link_to 'Admin', admins_statics_path %></li>
+                <% end %>
+                <li><p class="navbar-text"><%= current_user.email %></p></li>
+                <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'Sign in', sign_in_path %></li>
               <% end %>
-              <li><p class="navbar-text"><%= current_user.email %></p></li>
-              <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
-            <% else %>
-              <li><%= link_to 'Sign in', sign_in_path %></li>
-            <% end %>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
 
 
-    <div id="flash">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key == 'notice' ? 'info' : key %> alert-dismissable fade in">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <%= value %>
-        </div>
-      <% end %>
+      <div id="flash">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key == 'notice' ? 'info' : key %> alert-dismissable fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
-
-    <div class="container">
-      <%= yield %>
-    </div>
-    <nav class="navbar navbar-bottom">
-      <div class="container-fluid pull-right">
+    <nav class="navbar navbar-bottom footer">
+      <div class="container-fluid text-center">
         Made with ❤ by NEXT Academy mentors
       </div>
     </nav>
