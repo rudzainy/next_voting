@@ -12,14 +12,19 @@
   <% end %>
     <%= f.hidden_field :user_id, value: current_user.id %>
 
-
-    <% @teams.each do |team| %>
-      <div class="field">
-        <%= check_box_tag "vote[team_id][]", team.id %> <%= team.name %>
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="row">
+          <% @teams.each do |team| %>
+            <div class="col-sm-4">
+              <%= check_box_tag "vote[team_id][]", team.id %> <%= team.name %>
+            </div>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+    </div>
 
-  <div class="actions">
+  <div class="actions text-center">
     <%= f.submit %>
   </div>
 <% end %>
