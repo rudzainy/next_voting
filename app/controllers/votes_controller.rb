@@ -4,7 +4,9 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
+    redirect_to root_path if !current_user.admin?
     @votes = Vote.all
+    @awards = Award.all
   end
 
   # GET /votes/1
@@ -28,7 +30,7 @@ class VotesController < ApplicationController
       flash[:danger] = "You can only vote up to three (3) teams."
       redirect_to award_path(params[:award_id])
     else
-      current_user.votes.destroy_all
+      current_user.votes.where(award_id: params[:award_id]).destroy_all
       award = Award.find(params[:award_id])
       params[:vote][:team_id].each do |team_id|
         vote = award.votes.new(vote_params)

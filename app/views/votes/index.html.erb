@@ -1,9 +1,16 @@
-<h1>Votes</h1>
+<h1 class="text-center">Votes</h1>
 
-<% Award.all.each do |a| %>
-  <p><%= a.title %></p>
-  <% a.teams.award_vote_count(a.id).each do |team| %>
-    Name: <p><%= team.name %></p>
-    Count: <p><%= team.vote_count %></p>
-  <% end %>
+<% @awards.all.each do |award| %>
+  <div class="row text-center votes-section">
+    <div class="col-md-8 col-md-offset-2">
+      <h3><%= award.title %></h3>
+      <% award.teams.award_vote_count(award.id).each_with_index do |team, index| %>
+        <div class="votes-list votes-item-<%= index %> btn btn-primary btn-block">
+          <div class="pull-left"><%= index +1 %>. <%= team.name %></div>
+          <div class="pull-right"><%= team.vote_count %> votes | <%= team.vote_percentage(award) %>%</div>
+          <div class="clearfix"></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>

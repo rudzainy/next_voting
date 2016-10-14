@@ -7,4 +7,8 @@ class Team < ApplicationRecord
   scope :award_vote_count, -> (award_id){
     where('votes.award_id = ?', award_id).select('teams.id, teams.name, count(votes.id) AS vote_count').distinct.group('teams.id').order('vote_count desc')
   }
+
+  def vote_percentage(award)
+    (self.vote_count * 100) / award.teams.count
+  end
 end

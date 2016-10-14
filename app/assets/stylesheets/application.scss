@@ -72,7 +72,7 @@ html, body {
   color: white;
 }
 
-.vote-button {
+.vote-button, .votes-section {
   margin-bottom: 20px
 }
 
@@ -89,4 +89,26 @@ html, body {
   width: 350px;
   display: block;
   height: 4rem;
+}
+
+.votes-list {
+  margin: 0;
+}
+
+.votes-list:hover, .votes-list:before {
+  cursor: default;
+}
+
+.votes-item-0 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.votes-item-1 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.votes-item-2 {
+  font-weight: 700;
 }
