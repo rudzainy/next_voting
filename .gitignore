@@ -18,6 +18,8 @@
 
 /public/uploads/team/
 
+/config/application.yml
+
 # Folder view configuration files
 .DS_Store
 Desktop.ini

@@ -25,8 +25,10 @@ Rails.application.routes.draw do
     resources :notes
   end
   resources :awards do
-    resources :votes
+    resources :votes, except: :index
   end
+
+  resources :votes, only: [:index]
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
