@@ -4,6 +4,8 @@ class Team < ApplicationRecord
   has_many :notes
   has_many :votes
 
+  enum course: {ios: "0", web: "1"}
+
   scope :award_vote_count, -> (award_id){
     where('votes.award_id = ?', award_id).select('teams.id, teams.name, count(votes.id) AS vote_count').distinct.group('teams.id').order('vote_count desc')
   }

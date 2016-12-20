@@ -16,6 +16,11 @@
 </div>
 
 <div class="field">
+  <%= f.label :course %>
+  <%= f.select(:course, options_for_select(@courses)) %>
+</div>
+
+<div class="field">
   <%= f.label :description %>
   <%= f.text_area :description %>
 </div>

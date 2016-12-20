@@ -21,9 +21,11 @@ class Admins::TeamsController < ApplicationController
   end
 
   def edit
+    @courses = [['iOS', 'ios'], ['Web Dev', 'web']]
   end
 
   def update
+    byebug
     if @team.update(team_params)
       redirect_to admins_team_path(@team)
     else
@@ -40,7 +42,7 @@ class Admins::TeamsController < ApplicationController
   private
 
   def team_params
-    params.require(:team).permit(:name, :description, :image)
+    params.require(:team).permit(:name, :description, :image, :course)
   end
 
   def set_team

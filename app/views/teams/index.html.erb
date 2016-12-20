@@ -9,7 +9,13 @@
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-sm-12 team-image" style="background-image: url(<%= team.image.url %>);"></div>
+            <div class="col-sm-12 team-image" style="background-image: url(<%= team.image.url %>);">
+              <% if team.course == "web" %>
+                <span class="label label-success">Web Dev</span>
+              <% elsif team.course == "ios" %>
+                <span class="label label-primary">iOS</span>
+              <% end %>
+            </div>
             <div class="col-sm-12 team-description" >
               <%= team.description %>
             </div>
